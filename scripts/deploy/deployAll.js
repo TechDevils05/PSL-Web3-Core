@@ -8,11 +8,11 @@ async function main() {
   
   console.log("Deploying with:", deployer.address);
 
-  // 0. Deploy ERC-6551 Registry (WireFluid doesn't have it)
+  // 0. Deploy ERC-6551 Registry
   const Registry = await ethers.getContractFactory("ERC6551Registry");
   const registry = await Registry.deploy();
   await registry.waitForDeployment();
-  const REGISTRY = await registry.getAddress();  // ← this is your registry now
+  const REGISTRY = await registry.getAddress();
   console.log("ERC6551Registry:", REGISTRY);
 
   // 1. TokenBoundAccount
@@ -22,7 +22,7 @@ async function main() {
   const TBA_ADDRESS = await tba.getAddress();
   console.log("TBA Implementation:", TBA_ADDRESS);
 
-  // 2. PSLMomentNFT — uses YOUR deployed registry, not the Sepolia one
+  // 2. PSLMomentNFT
   const NFT = await ethers.getContractFactory("PSLMomentNFT");
   const nft = await NFT.deploy(REGISTRY, TBA_ADDRESS);
   await nft.waitForDeployment();
@@ -50,9 +50,17 @@ async function main() {
   const MARKET_ADDRESS = await market.getAddress();
   console.log("PSLMarketplace:", MARKET_ADDRESS);
 
-  // Wire them together
+  // 6. ScoutingPool — native WIRE, no constructor args needed
+  const ScoutingPool = await ethers.getContractFactory("ScoutingPool");
+  const scoutingPool = await ScoutingPool.deploy();
+  await scoutingPool.waitForDeployment();
+  const SCOUTING_POOL_ADDRESS = await scoutingPool.getAddress();
+  console.log("ScoutingPool:", SCOUTING_POOL_ADDRESS);
+
+  // ── Wire them together ──────────────────────────────────────────────
   await nft.setOracle(ORACLE_ADDRESS);
   await yieldDist.setContracts(NFT_ADDRESS, ORACLE_ADDRESS);
+  // ScoutingPool is standalone — no wiring needed unless your backend calls it
 
   console.log("\n✅ All deployed and wired. Copy these into your .env:");
   console.log("ERC6551_REGISTRY=" + REGISTRY);
@@ -61,6 +69,7 @@ async function main() {
   console.log("ORACLE_CONTRACT=" + ORACLE_ADDRESS);
   console.log("YIELD_CONTRACT=" + YIELD_ADDRESS);
   console.log("MARKETPLACE_CONTRACT=" + MARKET_ADDRESS);
+  console.log("SCOUTING_POOL_CONTRACT=" + SCOUTING_POOL_ADDRESS);
 }
 
 main().catch(console.error);
