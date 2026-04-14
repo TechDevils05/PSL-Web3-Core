@@ -1,0 +1,61 @@
+{
+  "name": "psl-web3-core",
+  "version": "1.0.0",
+  "description": "PSL Web3 Core — Scouting Pool, Oracle & Sponsor Vault",
+  "main": "index.js",
+  "scripts": {
+    "compile": "npx hardhat compile",
+    "test:contracts": "npx hardhat test",
+    "deploy:local": "npx hardhat run scripts/deployScoutingPool.js --network localhost",
+    "node": "npx hardhat node",
+    "start:api": "nest start --builder swc --watch",
+    "build:api": "nest build --builder swc",
+    "start:prod": "node dist/main.js",
+    "oracle:simulate": "npx hardhat run scripts/simulateOracle.js --network localhost"
+  },
+  "keywords": [
+    "psl",
+    "web3",
+    "cricket",
+    "defi"
+  ],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "@nestjs/cli": "^11.0.0",
+    "@nestjs/schematics": "^11.0.0",
+    "@nomicfoundation/hardhat-ethers": "^4.0.7",
+    "@nomicfoundation/hardhat-ethers-chai-matchers": "^3.0.4",
+    "@nomicfoundation/hardhat-ignition": "^0.15.16",
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "@nomicfoundation/hardhat-toolbox-mocha-ethers": "^3.0.3",
+    "@swc/cli": "^0.6.0",
+    "@swc/core": "^1.11.0",
+    "@types/chai": "^5.2.3",
+    "@types/chai-as-promised": "^8.0.2",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^22.19.17",
+    "chai": "^6.2.2",
+    "dotenv": "^17.4.2",
+    "ethers": "^6.16.0",
+    "forge-std": "github:foundry-rs/forge-std#v1.9.4",
+    "hardhat": "^3.3.0",
+    "mocha": "^11.3.0",
+    "typescript": "~5.8.0"
+  },
+  "dependencies": {
+    "@nestjs/common": "^11.0.0",
+    "@nestjs/config": "^4.0.0",
+    "@nestjs/core": "^11.0.0",
+    "@nestjs/platform-express": "^11.0.0",
+    "@nestjs/swagger": "^11.0.0",
+    "@openzeppelin/contracts": "^5.0.2",
+    "@pinata/sdk": "^2.1.0",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.1",
+    "joi": "^17.13.0",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.1"
+  }
+}
