@@ -2,7 +2,7 @@
 /node_modules
 # Compilation output
 /dist
-./env
+.env
 # pnpm deploy output
 /bundle
 
