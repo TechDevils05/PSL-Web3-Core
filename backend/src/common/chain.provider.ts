@@ -7,13 +7,13 @@ import { NFT_ABI, ORACLE_ABI, MARKETPLACE_ABI, YIELD_ABI } from './abi/contracts
 export class ChainProvider implements OnModuleInit, OnModuleDestroy {
   private readonly logger = new Logger(ChainProvider.name);
 
-  private wsProvider: ethers.WebSocketProvider;
+  private httpProvider: ethers.JsonRpcProvider;
   private destroyed = false;
   private reconnectAttempts = 0;
   private readonly MAX_RECONNECT = 10;
   private readonly RECONNECT_DELAY = 3000;
 
-  public provider: ethers.WebSocketProvider;
+  public provider: ethers.JsonRpcProvider;
   public signer: ethers.Wallet;
   public nftContract: ethers.Contract;
   public oracleContract: ethers.Contract;
@@ -29,11 +29,13 @@ export class ChainProvider implements OnModuleInit, OnModuleDestroy {
 
   async onModuleDestroy() {
     this.destroyed = true;
-    await this.wsProvider?.destroy();
+    // JsonRpcProvider has no destroy(), just mark as destroyed
   }
 
   private async connect() {
-    const wsUrl = this.config.get<string>('chain.wsUrl');
+    const rpcUrl = this.config.get<string>('chain.rpcUrl');
+    this.logger.log(`Connecting to: ${rpcUrl ? rpcUrl.substring(0, 30) + '...' : 'UNDEFINED ❌'}`);
+
     const privateKey = this.config.get<string>('chain.privateKey');
     const contracts = this.config.get('contracts');
 
@@ -47,29 +49,30 @@ export class ChainProvider implements OnModuleInit, OnModuleDestroy {
     }
 
     try {
-      this.wsProvider = new ethers.WebSocketProvider(wsUrl);
-      await this.wsProvider.ready;
+      this.httpProvider = new ethers.JsonRpcProvider(rpcUrl);
 
-      this.provider = this.wsProvider;
-      this.signer = new ethers.Wallet(privateKey, this.wsProvider);
+      await Promise.race([
+        this.httpProvider.getNetwork(),
+        new Promise((_, reject) =>
+          setTimeout(() => reject(new Error('Connection timeout after 10s')), 10000)
+        ),
+      ]);
+
+      this.provider = this.httpProvider;
+      this.signer = new ethers.Wallet(privateKey, this.httpProvider);
 
       this.nftContract         = new ethers.Contract(contracts.nft,         NFT_ABI,         this.signer);
       this.oracleContract      = new ethers.Contract(contracts.oracle,      ORACLE_ABI,      this.signer);
-      this.marketplaceContract = new ethers.Contract(contracts.marketplace, MARKETPLACE_ABI, this.wsProvider);
-      this.yieldContract       = new ethers.Contract(contracts.yield,       YIELD_ABI,       this.wsProvider);
+      this.marketplaceContract = new ethers.Contract(contracts.marketplace, MARKETPLACE_ABI, this.httpProvider);
+      this.yieldContract       = new ethers.Contract(contracts.yield,       YIELD_ABI,       this.httpProvider);
 
       this.reconnectAttempts = 0;
       this.logger.log(`Chain provider ready — signer: ${this.signer.address}`);
 
-      (this.wsProvider.websocket as unknown as WebSocket).addEventListener('close', () => {
-        if (!this.destroyed) {
-          this.logger.warn('WebSocket closed — scheduling reconnect...');
-          this.scheduleReconnect();
-        }
-      });
     } catch (err) {
-      this.logger.error(`WebSocket connection failed: ${err.message}`);
-      this.scheduleReconnect();
+      const error = err as Error;
+      this.logger.error(`Connection failed: ${error.message}`);
+      if (!this.destroyed) this.scheduleReconnect();
     }
   }
 
@@ -84,8 +87,10 @@ export class ChainProvider implements OnModuleInit, OnModuleDestroy {
     this.logger.log(`Reconnect ${this.reconnectAttempts}/${this.MAX_RECONNECT} in ${delay}ms`);
 
     setTimeout(async () => {
-      await this.connect();
-      this.onReconnect?.();
+      if (!this.destroyed) {
+        await this.connect();
+        this.onReconnect?.();
+      }
     }, delay);
   }
 }
