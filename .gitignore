@@ -1,19 +1,68 @@
-# Node modules
-/node_modules
-# Compilation output
-/dist
+# ========================
+# Node & NestJS
+# ========================
+node_modules/
+dist/
+build/
+bundle/
+npm-debug.log
+yarn-error.log
+yarn-debug.log
+pnpm-debug.log
+
+# ========================
+# Environment Variables (CRITICAL)
+# ========================
+# NEVER commit your .env files, especially in Web3! 
+# They contain your API keys and wallet private keys.
 .env
-# pnpm deploy output
-/bundle
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
-# Hardhat Build Artifacts
-/artifacts
+# ========================
+# Web3 / Smart Contracts (Hardhat/Foundry)
+# ========================
+cache/
+artifacts/
+typechain/
+typechain-types/
+types/
+out/
+broadcast/
 
-# Hardhat compilation (v2) support directory
-/cache
+# ========================
+# Logs and Databases
+# ========================
+logs/
+*.log
+*.sqlite
+*.sqlite3
 
-# Typechain output
-/types
+# ========================
+# OS & IDE Files
+# ========================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
 
-# Hardhat coverage reports
-/coverage
+# IDEs
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# ========================
+# Testing
+# ========================
+coverage/
+coverage.json
+.nyc_output/
