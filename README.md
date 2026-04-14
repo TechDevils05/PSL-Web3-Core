@@ -13,6 +13,7 @@ Dynamic NFTs that evolve based on real-world PSL performance. Every significant 
 
 ## 2. THE FULL EVENT CHAIN
 
+
 One command triggers the entire sequence on demo day:
 
 ```
