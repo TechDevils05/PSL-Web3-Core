@@ -3,7 +3,7 @@ import { navItems } from "../data/mockData";
 
 function TopNav({ activeView, onChange }) {
   return (
-    <header className="sticky top-0 z-40 border-b border-cyan-500/30 bg-black/40 backdrop-blur-xl">
+    <header className="sticky top-0 z-40 border-b border-lime-300/25 bg-[#182413]/78 backdrop-blur-xl">
       <div className="mx-auto flex max-w-[1400px] items-center justify-between px-4 py-3 md:px-8">
         <div className="flex items-center gap-2 text-emerald-100">
           <span className="rounded-full border border-cyan-400/50 bg-cyan-500/10 p-2">
@@ -19,8 +19,8 @@ function TopNav({ activeView, onChange }) {
               <button
                 key={item.key}
                 onClick={() => onChange(item.key)}
-                className={`relative rounded-lg px-4 py-2 text-sm font-semibold uppercase tracking-wide transition ${
-                  active ? "text-cyan-300 shadow-cyanGlow" : "text-zinc-300 hover:text-cyan-200"
+                className={`ui-hover-btn relative rounded-lg px-4 py-2 text-sm font-semibold uppercase tracking-wide ${
+                  active ? "text-cyan-300 shadow-cyanGlow" : "text-zinc-300 hover:text-cyan-200 hover:bg-cyan-500/10"
                 }`}
               >
                 {item.label}
@@ -30,7 +30,7 @@ function TopNav({ activeView, onChange }) {
           })}
         </nav>
 
-        <button className="rounded-full border border-white/20 bg-white/5 p-1 text-zinc-300 transition hover:border-cyan-300 hover:text-cyan-200">
+        <button className="ui-hover-btn rounded-full border border-white/20 bg-white/5 p-1 text-zinc-300 hover:border-cyan-300 hover:bg-cyan-500/10 hover:text-cyan-200">
           <UserCircle2 className="h-8 w-8" />
         </button>
       </div>

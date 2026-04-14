@@ -23,7 +23,7 @@ function App() {
   }, [activeView]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-950 via-gray-900 to-black text-zinc-100">
+    <div className="min-h-screen bg-gradient-to-br from-[#111b0d] via-[#253b18] to-[#090d08] text-zinc-100">
       <TopNav activeView={activeView} onChange={setActiveView} />
       <main className="mx-auto max-w-[1400px] px-4 py-6 md:px-8">{view}</main>
     </div>

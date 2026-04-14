@@ -4,11 +4,11 @@ import { players } from "../data/mockData";
 function Marketplace() {
   return (
     <div className="grid gap-6 lg:grid-cols-[260px_1fr]">
-      <aside className="space-y-4 rounded-xl border border-white/10 bg-white/5 p-4 backdrop-blur-md">
-        <h3 className="text-sm font-semibold uppercase tracking-wider text-cyan-200">Market Filters</h3>
+      <aside className="ui-hover-panel space-y-4 rounded-xl border border-white/10 bg-[#24381a]/72 p-4 backdrop-blur-md">
+        <h3 className="text-sm font-semibold uppercase tracking-wider text-lime-100">Market Filters</h3>
         <div className="space-y-2 text-xs text-zinc-200">
           {["Sort by Price", "Filter by Role", "Tier", "Price Range"].map((item) => (
-            <div key={item} className="rounded-md border border-white/10 bg-black/30 p-2">
+            <div key={item} className="ui-hover-chip cursor-pointer rounded-md border border-lime-100/10 bg-[#1f2d17]/88 p-2">
               {item}
             </div>
           ))}

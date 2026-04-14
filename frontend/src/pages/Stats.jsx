@@ -2,13 +2,13 @@ import { topBatsmen, topBowlers } from "../data/mockData";
 
 function StatList({ title, rows, leftKey, rightKey }) {
   return (
-    <section className="rounded-xl border border-white/10 bg-white/5 p-4 backdrop-blur-md">
-      <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-cyan-200">{title}</h3>
+    <section className="ui-hover-panel rounded-xl border border-white/10 bg-[#24381a]/72 p-4 backdrop-blur-md">
+      <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-lime-100">{title}</h3>
       <div className="space-y-2">
         {rows.map((row) => (
           <div
             key={row.name}
-            className="flex items-center justify-between rounded-md border border-white/10 bg-black/35 px-3 py-2 text-xs text-zinc-100"
+            className="ui-hover-chip flex cursor-pointer items-center justify-between rounded-md border border-lime-100/10 bg-[#1f2d17]/88 px-3 py-2 text-xs text-zinc-100"
           >
             <p className="font-medium">{row.name}</p>
             <div className="text-right">
