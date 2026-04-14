@@ -1,0 +1,214 @@
+{
+  "season": "PSL 2026",
+  "matches": [
+    {
+      "matchId": "PSL2026-M01",
+      "matchName": "Karachi Kings vs Lahore Qalandars",
+      "venue": "National Stadium Karachi",
+      "date": "2026-02-14",
+      "events": [
+        {
+          "eventId": "EVT-001",
+          "playerId": "babar-azam",
+          "playerName": "Babar Azam",
+          "team": "Karachi Kings",
+          "eventType": "BATTING_MILESTONE",
+          "stat": "half_century",
+          "runs": 62,
+          "ballsFaced": 38,
+          "strikeRate": 163.1,
+          "fours": 5,
+          "sixes": 3,
+          "matchContext": "solid powerplay knock to set up the chase",
+          "rarityTrigger": "RARE"
+        },
+        {
+          "eventId": "EVT-002",
+          "playerId": "shaheen-afridi",
+          "playerName": "Shaheen Shah Afridi",
+          "team": "Lahore Qalandars",
+          "eventType": "BOWLING_MILESTONE",
+          "stat": "three_wickets",
+          "wickets": 3,
+          "runsConceded": 18,
+          "economy": 4.5,
+          "matchContext": "strangled the middle order in overs 7-10",
+          "rarityTrigger": "RARE"
+        }
+      ]
+    },
+    {
+      "matchId": "PSL2026-M02",
+      "matchName": "Peshawar Zalmi vs Multan Sultans",
+      "venue": "Arbab Niaz Stadium Peshawar",
+      "date": "2026-02-17",
+      "events": [
+        {
+          "eventId": "EVT-003",
+          "playerId": "rizwan-mohammad",
+          "playerName": "Mohammad Rizwan",
+          "team": "Multan Sultans",
+          "eventType": "BATTING_MILESTONE",
+          "stat": "half_century",
+          "runs": 78,
+          "ballsFaced": 44,
+          "strikeRate": 177.3,
+          "fours": 6,
+          "sixes": 5,
+          "matchContext": "last-ball six to win the match",
+          "rarityTrigger": "EPIC"
+        },
+        {
+          "eventId": "EVT-004",
+          "playerId": "shaheen-afridi",
+          "playerName": "Shaheen Shah Afridi",
+          "team": "Lahore Qalandars",
+          "eventType": "BOWLING_MILESTONE",
+          "stat": "five_wicket_haul",
+          "wickets": 5,
+          "runsConceded": 22,
+          "economy": 4.4,
+          "matchContext": "first powerplay, dismantled top order",
+          "rarityTrigger": "LEGEND"
+        }
+      ]
+    },
+    {
+      "matchId": "PSL2026-M05",
+      "matchName": "Karachi Kings vs Multan Sultans",
+      "venue": "National Stadium Karachi",
+      "date": "2026-02-24",
+      "events": [
+        {
+          "eventId": "EVT-005",
+          "playerId": "babar-azam",
+          "playerName": "Babar Azam",
+          "team": "Karachi Kings",
+          "eventType": "BATTING_MILESTONE",
+          "stat": "century",
+          "runs": 102,
+          "ballsFaced": 63,
+          "strikeRate": 161.9,
+          "fours": 9,
+          "sixes": 4,
+          "matchContext": "chasing 187, match-winning innings",
+          "rarityTrigger": "EPIC"
+        }
+      ]
+    },
+    {
+      "matchId": "PSL2026-SEMIFINAL",
+      "matchName": "Lahore Qalandars vs Peshawar Zalmi — Semi Final",
+      "venue": "Gaddafi Stadium Lahore",
+      "date": "2026-03-05",
+      "events": [
+        {
+          "eventId": "EVT-SF01",
+          "playerId": "shaheen-afridi",
+          "playerName": "Shaheen Shah Afridi",
+          "team": "Lahore Qalandars",
+          "eventType": "BOWLING_MILESTONE",
+          "stat": "hat_trick",
+          "wickets": 3,
+          "runsConceded": 0,
+          "economy": 0.0,
+          "matchContext": "hat-trick in the semi-final death overs, sealed the game",
+          "rarityTrigger": "LEGEND"
+        }
+      ]
+    },
+    {
+      "matchId": "PSL2026-FINAL",
+      "matchName": "PSL Final — Karachi Kings vs Multan Sultans",
+      "venue": "Gaddafi Stadium Lahore",
+      "date": "2026-03-09",
+      "events": [
+        {
+          "eventId": "EVT-DEMO",
+          "playerId": "babar-azam",
+          "playerName": "Babar Azam",
+          "team": "Karachi Kings",
+          "eventType": "BATTING_MILESTONE",
+          "stat": "century",
+          "runs": 119,
+          "ballsFaced": 71,
+          "strikeRate": 167.6,
+          "fours": 11,
+          "sixes": 6,
+          "matchContext": "PSL Final, match-winning century",
+          "rarityTrigger": "LEGEND"
+        },
+        {
+          "eventId": "EVT-DEADSHOT-001",
+          "playerId": "babar-azam",
+          "playerName": "Babar Azam",
+          "team": "Karachi Kings",
+          "eventType": "BATTING_MILESTONE",
+          "stat": "six_sixes",
+          "runs": 36,
+          "ballsFaced": 6,
+          "strikeRate": 600.0,
+          "fours": 0,
+          "sixes": 6,
+          "matchContext": "PSL Final, over 18 — six sixes off consecutive deliveries. Only 1 card exists.",
+          "rarityTrigger": "ICON",
+          "isDeadshot": true,
+          "deadshot": {
+            "globalSupplyCap": 1,
+            "mintDirectlyAtTier": true,
+            "description": "The rarest moment in PSL 2026. One card. One moment. One owner."
+          }
+        },
+        {
+          "eventId": "EVT-DEADSHOT-002",
+          "playerId": "shaheen-afridi",
+          "playerName": "Shaheen Shah Afridi",
+          "team": "Lahore Qalandars",
+          "eventType": "BOWLING_MILESTONE",
+          "stat": "perfect_spell",
+          "wickets": 6,
+          "runsConceded": 4,
+          "economy": 2.0,
+          "matchContext": "PSL Final, figures of 6/4 — the most dominant final spell in PSL history",
+          "rarityTrigger": "ICON",
+          "isDeadshot": true,
+          "deadshot": {
+            "globalSupplyCap": 2,
+            "mintDirectlyAtTier": true,
+            "description": "Six wickets for four runs in a PSL Final. 2 cards exist. Both are legend."
+          }
+        }
+      ]
+    }
+  ],
+  "players": [
+    {
+      "playerId": "babar-azam",
+      "playerName": "Babar Azam",
+      "team": "Karachi Kings",
+      "role": "Batsman",
+      "cricapiId": "c27f0d41-35a0-4bc8-9e9f-a99d5e6fae81"
+    },
+    {
+      "playerId": "shaheen-afridi",
+      "playerName": "Shaheen Shah Afridi",
+      "team": "Lahore Qalandars",
+      "role": "Bowler",
+      "cricapiId": "ae680a08-8e62-4dc8-82bc-9fea3f20da38"
+    },
+    {
+      "playerId": "rizwan-mohammad",
+      "playerName": "Mohammad Rizwan",
+      "team": "Multan Sultans",
+      "role": "Wicketkeeper-Batsman",
+      "cricapiId": "ba267f8a-9a20-4519-b2bc-e2c5e87ab9fe"
+    }
+  ],
+  "rarityThresholds": {
+    "COMMON":  { "minRuns": 0,   "minStrikeRate": 0,   "minWickets": 0, "supply": 10000 },
+    "RARE":    { "minRuns": 30,  "minStrikeRate": 120, "minWickets": 2, "supply": 1000  },
+    "EPIC":    { "minRuns": 50,  "minStrikeRate": 150, "minWickets": 3, "supply": 100   },
+    "LEGEND":  { "minRuns": 100, "minStrikeRate": 160, "minWickets": 5, "supply": 10    },
+    "ICON":    { "minRuns": 0,   "minStrikeRate": 0,   "minWickets": 0, "supply": 2, "note": "Deadshot — manually triggered only, mintAtTier()" }
+  }
+}
